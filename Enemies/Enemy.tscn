@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cbj6k1csmiww7"]
+
+[ext_resource type="Script" uid="uid://da5eowrmcluob" path="res://Enemies/Scripts/enemy.gd" id="1_4isyn"]
+[ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="1_bkvnc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wdetw"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1887775050]
+script = ExtResource("1_4isyn")
+
+[node name="StateManager" type="Node2D" parent="." unique_id=802023475]
+script = ExtResource("1_bkvnc")
+
+[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83165571]
+shape = SubResource("CircleShape2D_wdetw")
