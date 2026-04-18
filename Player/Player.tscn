@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="2_k53q1"]
 [ext_resource type="Script" uid="uid://cnamxcqh8rl6y" path="res://Player/Scripts/player_idle_state.gd" id="3_fhl08"]
 [ext_resource type="Script" uid="uid://c5u1io1y3dtt8" path="res://Player/Scripts/player_stunned_state.gd" id="4_k53q1"]
-[ext_resource type="Texture2D" uid="uid://dsr1cg8pvr12n" path="res://Player/Sprites/PlayerProto.png" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://dlxgk2fnaglrg" path="res://Player/Scripts/player_charge_attack_state.gd" id="5_fhl08"]
 [ext_resource type="Script" uid="uid://sjxgqmc0wbfb" path="res://Player/Scripts/player_attack_state.gd" id="6_vtle1"]
+[ext_resource type="Texture2D" uid="uid://cy133wr1e1ure" path="res://Asset/2Stun2.png" id="7_o28un"]
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="8_od3ui"]
 [ext_resource type="Script" uid="uid://dey3j4hwt0uyu" path="res://Player/Scripts/player_death_behaviour.gd" id="9_00tjw"]
 [ext_resource type="AudioStream" uid="uid://bl8ttr53kbeex" path="res://Audio/Balls1.wav" id="10_5wa8t"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Player/Scripts/player_power_up_sfx.gd" id="16_8sa4y"]
 [ext_resource type="Script" path="res://Player/Scripts/player_power_move_sfx.gd" id="17_3nb2p"]
 [ext_resource type="AudioStream" uid="uid://dblwgpeqyypu2" path="res://Audio/V2sHOOOT.wav" id="18_d7xyo"]
+[ext_resource type="Texture2D" uid="uid://c50bl7w6vvwbb" path="res://Asset/PlayerStun2.png" id="20_n471f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_od3ui"]
 bounce = 0.5
@@ -78,6 +79,25 @@ stream_count = 2
 stream_0 = ExtResource("11_p7tob")
 stream_1 = ExtResource("10_5wa8t")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7emwf"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_o28un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_n471f")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
+}]
+
 [node name="Player" type="RigidBody2D" unique_id=18931073 groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_od3ui")
 gravity_scale = 0.0
@@ -100,8 +120,9 @@ script = ExtResource("2_k53q1")
 [node name="RunState" type="Node2D" parent="StateManager" unique_id=902340786]
 script = ExtResource("3_fhl08")
 
-[node name="StunnedState" type="Node2D" parent="StateManager" unique_id=2081339647]
+[node name="StunnedState" type="Node2D" parent="StateManager" unique_id=2081339647 node_paths=PackedStringArray("animation_stun")]
 script = ExtResource("4_k53q1")
+animation_stun = NodePath("../../AnimatedSprite2D")
 
 [node name="ChargeAttackState" type="Node2D" parent="StateManager" unique_id=1477116596 node_paths=PackedStringArray("charge_particles")]
 script = ExtResource("5_fhl08")
@@ -113,7 +134,7 @@ ball_rotation_point = NodePath("../../RotationPointBoxer")
 ball = NodePath("../../RotationPointBoxer/AnimatableBody2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=892463765]
-texture = ExtResource("4_vtle1")
+texture = ExtResource("7_o28un")
 
 [node name="RotationPointBoxer" type="Node2D" parent="." unique_id=2039807927]
 
@@ -125,8 +146,9 @@ physics_material_override = SubResource("PhysicsMaterial_x3vf3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationPointBoxer/AnimatableBody2D" unique_id=576620339]
 shape = SubResource("CircleShape2D_od3ui")
 
-[node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("8_od3ui")]
+[node name="DeathBehaivor" parent="." unique_id=485860911 node_paths=PackedStringArray("animation_stun") instance=ExtResource("8_od3ui")]
 script = ExtResource("9_00tjw")
+animation_stun = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionBallsSFX" type="AudioStreamPlayer2D" parent="." unique_id=357398564]
 stream = SubResource("AudioStreamPlaylist_p7tob")
@@ -145,3 +167,9 @@ script = ExtResource("16_8sa4y")
 [node name="PowerMoveSFX" type="AudioStreamPlayer2D" parent="." unique_id=829578357]
 stream = ExtResource("18_d7xyo")
 script = ExtResource("17_3nb2p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=326531128]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_7emwf")
+animation = &"stun"
+speed_scale = 0.6
