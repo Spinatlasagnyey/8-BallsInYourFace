@@ -1,14 +1,14 @@
 extends Camera2D
 
-@export var decay:float = 0.7;
-@export var max_offset:Vector2 = Vector2(50,20)
+@export var decay:float = 1.5;
+@export var max_offset:Vector2 = Vector2(5,2.5)
 @export var max_roll:float = 0.1; 
 
 var trauma: float = 0.0  
 var trauma_power: float = 2 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void: 
 	GlobalEventSystem.camerashake2D.connect(add_trauma)
 	randomize()
 

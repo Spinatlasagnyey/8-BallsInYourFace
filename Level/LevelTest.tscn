@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://lxkfpiqp8wua"]
 
-[ext_resource type="PackedScene" path="res://Player/player.tscn" id="1_g6vvm"]
+[ext_resource type="PackedScene" uid="uid://cbqkxawik6qbr" path="res://Player/player.tscn" id="1_g6vvm"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="2_olpu1"]
+[ext_resource type="Script" uid="uid://bvk7ho1huw7ps" path="res://Components/Camera/camerashake_2D.gd" id="3_yng6e"]
 [ext_resource type="PackedScene" uid="uid://d0d6kfuh8xn5b" path="res://Components/Ingame/game_manager.tscn" id="5_uwsch"]
 [ext_resource type="PackedScene" uid="uid://hfwsmbuwldjx" path="res://Enviroment/tilemaps/tile_map_1.tscn" id="5_yng6e"]
 [ext_resource type="PackedScene" uid="uid://ddtj6nk5l26yq" path="res://Components/Ingame/score_up_label.tscn" id="6_yng6e"]
@@ -31,6 +32,7 @@ position = Vector2(551, 334)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=939894425]
 position = Vector2(300, 206)
+script = ExtResource("3_yng6e")
 
 [node name="GameManager" parent="." unique_id=1695299218 instance=ExtResource("5_uwsch")]
 score_up_label = ExtResource("6_yng6e")
