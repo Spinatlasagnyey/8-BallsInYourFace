@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://dbr6whpbvex3b" path="res://Enemies/prepare_state.gd" id="3_biruh"]
 [ext_resource type="Script" uid="uid://do1wspt4up1ae" path="res://Enemies/Scripts/enemy_idle_state.gd" id="3_jcwuj"]
 [ext_resource type="Texture2D" uid="uid://dvn55tbl1s8lg" path="res://Enemies/Sprites/ZombieProto.png" id="3_wdetw"]
+[ext_resource type="Script" uid="uid://cneqlqpx3067i" path="res://Enemies/Scripts/enemy_stunned_state.gd" id="5_a5aut"]
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="6_n1bor"]
+[ext_resource type="Script" uid="uid://06j7wxvaq2tl" path="res://Enemies/Scripts/enemy_death_behavior.gd" id="8_ikgc1"]
 
 [sub_resource type="Gradient" id="Gradient_n1bor"]
 offsets = PackedFloat32Array(0.70652175, 1)
@@ -55,7 +57,12 @@ damping_max = 3.7470002
 radius = 103.09
 
 [node name="Enemy" type="RigidBody2D" unique_id=853872974 groups=["enemies"]]
+collision_layer = 3
+collision_mask = 3
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 10.0
 angular_damp = 10.0
 
 [node name="PowerUp" type="GPUParticles2D" parent="." unique_id=1017661227]
@@ -87,12 +94,16 @@ script = ExtResource("1_bkvnc")
 [node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122]
 script = ExtResource("3_jcwuj")
 
-[node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913]
+[node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913 node_paths=PackedStringArray("effect")]
 script = ExtResource("3_biruh")
+effect = NodePath("../../PowerUp")
 
 [node name="DashState" type="Node2D" parent="StateManager" unique_id=465474441 node_paths=PackedStringArray("effect_dash")]
 script = ExtResource("1_jcwuj")
 effect_dash = NodePath("../../AttackFX")
+
+[node name="StunnedState" type="Node2D" parent="StateManager" unique_id=290676919]
+script = ExtResource("5_a5aut")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83165571]
 shape = SubResource("CircleShape2D_wdetw")
@@ -105,7 +116,7 @@ texture = ExtResource("3_wdetw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=918402325]
 shape = SubResource("CircleShape2D_jcwuj")
 
-[node name="DeathBehaivor" parent="." unique_id=485860911 node_paths=PackedStringArray("object") instance=ExtResource("6_n1bor")]
-object = NodePath("..")
+[node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("6_n1bor")]
+script = ExtResource("8_ikgc1")
 
 [connection signal="body_entered" from="Area2D" to="StateManager/IdleState" method="_on_area_2d_body_entered"]
