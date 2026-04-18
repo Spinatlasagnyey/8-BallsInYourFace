@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbj6k1csmiww7"]
 
 [ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="1_bkvnc"]
+[ext_resource type="Script" uid="uid://cm11p3vem61ak" path="res://Enemies/Scripts/enemy.gd" id="1_da7ms"]
 [ext_resource type="Script" uid="uid://dor8ooohbowsy" path="res://Enemies/attack_dash.gd" id="1_jcwuj"]
 [ext_resource type="Script" uid="uid://dbr6whpbvex3b" path="res://Enemies/prepare_state.gd" id="3_biruh"]
 [ext_resource type="Script" uid="uid://do1wspt4up1ae" path="res://Enemies/Scripts/enemy_idle_state.gd" id="3_jcwuj"]
@@ -56,9 +57,6 @@ damping_max = 3.7470002
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdetw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jcwuj"]
-radius = 103.09
-
 [node name="Enemy" type="RigidBody2D" unique_id=853872974 groups=["enemies"]]
 collision_layer = 3
 collision_mask = 3
@@ -68,6 +66,7 @@ contact_monitor = true
 max_contacts_reported = 1
 linear_damp = 10.0
 angular_damp = 10.0
+script = ExtResource("1_da7ms")
 
 [node name="PowerUp" type="GPUParticles2D" parent="." unique_id=1017661227]
 emitting = false
@@ -95,10 +94,10 @@ process_material = SubResource("ParticleProcessMaterial_n1bor")
 [node name="StateManager" type="Node2D" parent="." unique_id=802023475]
 script = ExtResource("1_bkvnc")
 
-[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122 node_paths=PackedStringArray("agent", "area")]
+[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122 node_paths=PackedStringArray("agent", "ray")]
 script = ExtResource("3_jcwuj")
 agent = NodePath("../../NavigationAgent2D")
-area = NodePath("../../Area2D")
+ray = NodePath("../../RayCast2D")
 
 [node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913 node_paths=PackedStringArray("effect")]
 script = ExtResource("3_biruh")
@@ -117,13 +116,6 @@ shape = SubResource("CircleShape2D_wdetw")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=834618559]
 texture = ExtResource("3_wdetw")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1805235347]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=918402325]
-shape = SubResource("CircleShape2D_jcwuj")
-
 [node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("6_n1bor")]
 script = ExtResource("8_ikgc1")
 
@@ -131,4 +123,5 @@ script = ExtResource("8_ikgc1")
 path_desired_distance = 8.0
 debug_enabled = true
 
-[connection signal="body_entered" from="Area2D" to="StateManager/IdleState" method="_on_area_2d_body_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=364139998]
+target_position = Vector2(226, 0)
