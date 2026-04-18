@@ -5,7 +5,12 @@ func _physics_process(delta: float) -> void:
 	if not get_colliding_bodies().is_empty():
 		print("collide")
 		if get_colliding_bodies()[0].is_in_group("enemies"):
+			GlobalEventSfx.sfx_balls_collision_balls.emit()
 			print("enim_collide")
 			Engine.time_scale = 0.1
 			await get_tree().create_timer(0.1).timeout
 			Engine.time_scale = 1
+		else:
+			GlobalEventSfx.sfx_balls_collision_wallsa.emit()
+			
+			

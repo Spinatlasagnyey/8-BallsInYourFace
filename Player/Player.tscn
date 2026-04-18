@@ -8,7 +8,13 @@
 [ext_resource type="Script" uid="uid://dlxgk2fnaglrg" path="res://Player/Scripts/player_charge_attack_state.gd" id="5_fhl08"]
 [ext_resource type="Script" uid="uid://sjxgqmc0wbfb" path="res://Player/Scripts/player_attack_state.gd" id="6_vtle1"]
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="8_od3ui"]
-[ext_resource type="Script" uid="uid://dey3j4hwt0uyu" path="res://Player/Scripts/player_death_behaviour.gd" id="9_00tjw"]
+[ext_resource type="Script" path="res://Player/Scripts/player_death_behaviour.gd" id="9_00tjw"]
+[ext_resource type="AudioStream" uid="uid://bl8ttr53kbeex" path="res://Audio/Balls1.wav" id="10_5wa8t"]
+[ext_resource type="AudioStream" uid="uid://erg1mdjcdr5p" path="res://Audio/Balls2wav.wav" id="11_p7tob"]
+[ext_resource type="Script" uid="uid://1df6nl03b1w8" path="res://Player/Scripts/collision_balls_sfx.gd" id="12_5wa8t"]
+[ext_resource type="Script" uid="uid://ryv2uo4jn3uy" path="res://Player/Scripts/collision_walls_sfx.gd" id="13_p7tob"]
+[ext_resource type="AudioStream" uid="uid://bef8bimqdc7g4" path="res://Audio/BallsWall1.wav" id="14_3mea3"]
+[ext_resource type="AudioStream" uid="uid://b5bmbrybw0r4q" path="res://Audio/Wall2.wav" id="15_7v5gs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_od3ui"]
 bounce = 0.5
@@ -61,6 +67,13 @@ bounce = 0.69
 [sub_resource type="CircleShape2D" id="CircleShape2D_od3ui"]
 radius = 7.0
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_p7tob"]
+loop = false
+fade_time = 0.2
+stream_count = 2
+stream_0 = ExtResource("11_p7tob")
+stream_1 = ExtResource("10_5wa8t")
+
 [node name="Player" type="RigidBody2D" unique_id=18931073 groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_od3ui")
 gravity_scale = 0.0
@@ -110,3 +123,13 @@ shape = SubResource("CircleShape2D_od3ui")
 
 [node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("8_od3ui")]
 script = ExtResource("9_00tjw")
+
+[node name="CollisionBallsSFX" type="AudioStreamPlayer2D" parent="." unique_id=357398564]
+stream = SubResource("AudioStreamPlaylist_p7tob")
+script = ExtResource("12_5wa8t")
+collision_sounds = Array[AudioStream]([ExtResource("11_p7tob"), ExtResource("10_5wa8t")])
+
+[node name="CollisionWallsSFX" type="AudioStreamPlayer2D" parent="." unique_id=1986283021]
+stream = SubResource("AudioStreamPlaylist_p7tob")
+script = ExtResource("13_p7tob")
+collision_sounds = Array[AudioStream]([ExtResource("14_3mea3"), ExtResource("15_7v5gs")])
