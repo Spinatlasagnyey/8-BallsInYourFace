@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="4_6sima"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g6vvm"]
-bounce = 0.5
+bounce = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olpu1"]
 size = Vector2(83, 599)
