@@ -7,7 +7,7 @@ var throw_strength: float = 1000
 @export var ball: AnimatableBody2D
 
 func on_state_start():
-	var tween = self.get_tree().create_tween()
+	#var tween = self.get_tree().create_tween()
 	state_manager.start_state_timer(attack_duration)
 	entity.linear_damp = 0
 	entity.apply_impulse((get_global_mouse_position() - global_position).normalized() * (700 + (charge_attack_state.charge * 100)))
