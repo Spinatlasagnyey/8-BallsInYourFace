@@ -8,13 +8,17 @@
 [ext_resource type="Script" uid="uid://dlxgk2fnaglrg" path="res://Player/Scripts/player_charge_attack_state.gd" id="5_fhl08"]
 [ext_resource type="Script" uid="uid://sjxgqmc0wbfb" path="res://Player/Scripts/player_attack_state.gd" id="6_vtle1"]
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="8_od3ui"]
-[ext_resource type="Script" uid="uid://dey3j4hwt0uyu" path="res://Player/Scripts/player_death_behaviour.gd" id="9_00tjw"]
+[ext_resource type="Script" path="res://Player/Scripts/player_death_behaviour.gd" id="9_00tjw"]
 [ext_resource type="AudioStream" uid="uid://bl8ttr53kbeex" path="res://Audio/Balls1.wav" id="10_5wa8t"]
 [ext_resource type="AudioStream" uid="uid://erg1mdjcdr5p" path="res://Audio/Balls2wav.wav" id="11_p7tob"]
-[ext_resource type="Script" path="res://Player/Scripts/collision_balls_sfx.gd" id="12_5wa8t"]
-[ext_resource type="Script" path="res://Player/Scripts/collision_walls_sfx.gd" id="13_p7tob"]
+[ext_resource type="Script" uid="uid://1df6nl03b1w8" path="res://Player/Scripts/collision_balls_sfx.gd" id="12_5wa8t"]
+[ext_resource type="Script" uid="uid://ryv2uo4jn3uy" path="res://Player/Scripts/collision_walls_sfx.gd" id="13_p7tob"]
 [ext_resource type="AudioStream" uid="uid://bef8bimqdc7g4" path="res://Audio/BallsWall1.wav" id="14_3mea3"]
 [ext_resource type="AudioStream" uid="uid://b5bmbrybw0r4q" path="res://Audio/Wall2.wav" id="15_7v5gs"]
+[ext_resource type="AudioStream" uid="uid://cosl5ycpwbclf" path="res://Audio/Fähigkeit.wav" id="16_3nb2p"]
+[ext_resource type="Script" uid="uid://dcg8ss6xomqqf" path="res://Player/power_up_sfx.gd" id="16_8sa4y"]
+[ext_resource type="Script" uid="uid://cxb5ncouir0km" path="res://Player/power_move_sfx.gd" id="17_3nb2p"]
+[ext_resource type="AudioStream" uid="uid://dblwgpeqyypu2" path="res://Audio/V2sHOOOT.wav" id="18_d7xyo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_od3ui"]
 bounce = 0.5
@@ -133,3 +137,11 @@ collision_sounds = Array[AudioStream]([ExtResource("11_p7tob"), ExtResource("10_
 stream = SubResource("AudioStreamPlaylist_p7tob")
 script = ExtResource("13_p7tob")
 collision_sounds = Array[AudioStream]([ExtResource("14_3mea3"), ExtResource("15_7v5gs")])
+
+[node name="PowerUpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1592345716]
+stream = ExtResource("16_3nb2p")
+script = ExtResource("16_8sa4y")
+
+[node name="PowerMoveSFX" type="AudioStreamPlayer2D" parent="." unique_id=829578357]
+stream = ExtResource("18_d7xyo")
+script = ExtResource("17_3nb2p")
