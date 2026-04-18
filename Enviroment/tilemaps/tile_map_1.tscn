@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://hfwsmbuwldjx"]
+
+[ext_resource type="Texture2D" uid="uid://crvxc2hdah1kb" path="res://Asset/SpriteSheetTemp.png" id="1_ln08b"]
+[ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="2_krjbt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_krjbt"]
+bounce = 0.5
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krjbt"]
+texture = ExtResource("1_ln08b")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xe8ag"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_krjbt")
+sources/0 = SubResource("TileSetAtlasSource_krjbt")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lwl2k"]
+scenes/1/scene = ExtResource("2_krjbt")
+
+[sub_resource type="TileSet" id="TileSet_d5rvd"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetScenesCollectionSource_lwl2k")
+
+[node name="TileMap1" type="Node2D" unique_id=286898297]
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1683281451]
+z_index = -5
+tile_set = SubResource("TileSet_xe8ag")
+
+[node name="Holes" type="TileMapLayer" parent="." unique_id=1444359903]
+tile_set = SubResource("TileSet_d5rvd")
