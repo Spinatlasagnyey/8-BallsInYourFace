@@ -15,7 +15,7 @@ func fixed_update(delta: float) -> void:
 	if entity.linear_velocity.length() < max_speed:
 		entity.apply_force(direction * acceleration)
 	
-	if not entity.get_colliding_bodies().is_empty():
+	if not entity.get_colliding_bodies().is_empty() and entity.get_colliding_bodies()[0].is_in_group("enemies"):
 		state_manager.change_state(stunned_state)
 
 func on_state_end():
