@@ -19,6 +19,6 @@ func on_state_end():
 	pass
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:  
-	if body == player: 
+	if body == player and state_manager.state != stunned_state: 
 		entity.linear_damp = 10
 		state_manager.change_state(prepare_state)

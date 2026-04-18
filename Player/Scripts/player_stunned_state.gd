@@ -3,7 +3,7 @@ extends PlayerBaseState
 @export var stun_duration: float = 1
 
 func on_state_start():
-	entity.linear_damp = 0
+	entity.linear_damp = 1
 	state_manager.start_state_timer(stun_duration)
 
 func update(delta: float) -> void:
