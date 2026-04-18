@@ -21,6 +21,12 @@ func _ready() -> void:
 			child.entity = get_parent()
 			child.state_manager = self
 
+	for child in get_children():
+		if child is BaseState:
+			states.append(child)
+			child.entity = get_parent()
+			child.state_manager = self
+
 func change_state(new_state):
 	if state:
 		state.on_state_end()
@@ -62,3 +68,5 @@ func check_state_timer_timeout():
 		state_timer_timeout = false
 		return true
 	return false
+
+	
