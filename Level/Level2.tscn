@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bqil004uhgp0a"]
 
-[ext_resource type="PackedScene" uid="uid://66iacqebclur" path="res://Player/Player.tscn" id="1_rxqj4"]
+[ext_resource type="PackedScene" uid="uid://bvvx6xua2hcvu" path="res://Player/Player.tscn" id="1_rxqj4"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="2_vte4j"]
 [ext_resource type="Script" uid="uid://bvk7ho1huw7ps" path="res://Components/Camera/camerashake_2D.gd" id="3_r72xe"]
 [ext_resource type="PackedScene" uid="uid://d0d6kfuh8xn5b" path="res://Components/Ingame/game_manager.tscn" id="4_dfp7q"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://f7tilsotbo7o" path="res://Level/rich_text_label.gd" id="9_dfp7q"]
 [ext_resource type="AudioStream" uid="uid://cne8djcp2l1yi" path="res://Audio/song.wav" id="10_5fcuh"]
 [ext_resource type="Shader" uid="uid://8ljvvnal56c3" path="res://Level/dithering.gdshader" id="11_7emdk"]
+[ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="12_2elvr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2elvr"]
 vertices = PackedVector2Array(584.96875, 22.9375, 584.02344, 394.97656, 22.023438, 394.0078, 22.96875, 20.046875)
@@ -63,6 +64,11 @@ shader_parameter/r_displacement = Vector2(4.005, 2.93)
 shader_parameter/g_displacement = Vector2(0.99, 1.815)
 shader_parameter/b_displacement = Vector2(-5, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jxqv"]
+shader = ExtResource("12_2elvr")
+shader_parameter/amount_x = 256.0
+shader_parameter/amount_y = 256.0
+
 [node name="Level2" type="Node2D" unique_id=2076614669]
 
 [node name="Player" parent="." unique_id=18931073 instance=ExtResource("1_rxqj4")]
@@ -81,6 +87,7 @@ script = ExtResource("3_r72xe")
 
 [node name="Enemy" parent="." unique_id=853872974 instance=ExtResource("2_vte4j")]
 position = Vector2(551, 334)
+script = null
 
 [node name="GameManager" parent="." unique_id=1695299218 instance=ExtResource("4_dfp7q")]
 score_up_label = ExtResource("5_5fcuh")
@@ -119,8 +126,16 @@ autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1119682167]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1400526881]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=2027762351]
 material = SubResource("ShaderMaterial_2elvr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1820527316]
+material = SubResource("ShaderMaterial_4jxqv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
