@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lxkfpiqp8wua"]
 
-[ext_resource type="PackedScene" uid="uid://82q5jrsjaydo" path="res://Player/Player.tscn" id="1_g6vvm"]
+[ext_resource type="PackedScene" uid="uid://37ibddol510q" path="res://Player/player.tscn" id="1_g6vvm"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="2_olpu1"]
 [ext_resource type="Texture2D" uid="uid://dd8j10tyjosoh" path="res://Debug/1WhitePixel.png" id="3_olpu1"]
 [ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="4_6sima"]
@@ -11,8 +11,7 @@
 script/source = "extends Node2D
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"attack\"):
-		GameState.add_score(100, Vector2(100,100))
+	pass
 "
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g6vvm"]
