@@ -4,6 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="2_olpu1"]
 [ext_resource type="Texture2D" uid="uid://dd8j10tyjosoh" path="res://Debug/1WhitePixel.png" id="3_olpu1"]
 [ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="4_6sima"]
+[ext_resource type="PackedScene" uid="uid://d0d6kfuh8xn5b" path="res://Components/Ingame/game_manager.tscn" id="5_uwsch"]
+[ext_resource type="PackedScene" uid="uid://ddtj6nk5l26yq" path="res://Components/Ingame/score_up_label.tscn" id="6_yng6e"]
+
+[sub_resource type="GDScript" id="GDScript_6sima"]
+script/source = "extends Node2D
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"attack\"):
+		GameState.add_score(100, Vector2(100,100))
+"
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g6vvm"]
 bounce = 0.3
@@ -12,15 +22,16 @@ bounce = 0.3
 size = Vector2(83, 599)
 
 [node name="LevelTest" type="Node2D" unique_id=550001546]
+script = SubResource("GDScript_6sima")
 
 [node name="Player" parent="." unique_id=18931073 instance=ExtResource("1_g6vvm")]
-position = Vector2(312, 168)
+position = Vector2(23, 102)
 
 [node name="Enemy" parent="." unique_id=853872974 instance=ExtResource("2_olpu1")]
-position = Vector2(840, 400)
+position = Vector2(551, 334)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1572735978]
-position = Vector2(250, 275)
+position = Vector2(-39, 209)
 physics_material_override = SubResource("PhysicsMaterial_g6vvm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2059217165]
@@ -34,7 +45,7 @@ texture = ExtResource("3_olpu1")
 position = Vector2(59, 3)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=747868778]
-position = Vector2(931, 275)
+position = Vector2(642, 209)
 rotation = 3.1415927
 physics_material_override = SubResource("PhysicsMaterial_g6vvm")
 
@@ -50,7 +61,7 @@ texture = ExtResource("3_olpu1")
 position = Vector2(59, 3)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1919571641]
-position = Vector2(589, 515)
+position = Vector2(300, 449)
 rotation = 4.712389
 physics_material_override = SubResource("PhysicsMaterial_g6vvm")
 
@@ -65,7 +76,7 @@ texture = ExtResource("3_olpu1")
 position = Vector2(59, 3)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=802791448]
-position = Vector2(589, 39)
+position = Vector2(300, -27)
 rotation = 7.853982
 physics_material_override = SubResource("PhysicsMaterial_g6vvm")
 
@@ -80,4 +91,7 @@ texture = ExtResource("3_olpu1")
 position = Vector2(59, 3)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=939894425]
-position = Vector2(589, 272)
+position = Vector2(300, 206)
+
+[node name="GameManager" parent="." unique_id=1695299218 instance=ExtResource("5_uwsch")]
+score_up_label = ExtResource("6_yng6e")
