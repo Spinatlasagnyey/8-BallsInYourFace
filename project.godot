@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/image="uid://b03vk4h1emu3f"
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalEventSystem="*uid://cfjq8283084gh"
+GlobalEventSfx="*uid://dmxr1sn5urhni"
+
 [display]
 
 window/size/viewport_width=600
@@ -24,6 +29,7 @@ window/size/viewport_height=400
 [file_customization]
 
 folder_colors={
+"res://Audio/": "pink",
 "res://Components/": "gray",
 "res://Debug/": "teal",
 "res://Enemies/": "red",
