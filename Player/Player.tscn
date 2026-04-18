@@ -1,15 +1,63 @@
 [gd_scene format=3 uid="uid://82q5jrsjaydo"]
 
-[ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://qoxt74ojbj3j" path="res://Player/Scripts/player.gd" id="1_gwnis"]
+[ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="2_k53q1"]
+[ext_resource type="Script" uid="uid://cnamxcqh8rl6y" path="res://Player/Scripts/player_idle_state.gd" id="3_fhl08"]
+[ext_resource type="Script" uid="uid://c5u1io1y3dtt8" path="res://Player/Scripts/player_stunned_state.gd" id="4_k53q1"]
+[ext_resource type="Texture2D" uid="uid://dsr1cg8pvr12n" path="res://Player/Sprites/PlayerProto.png" id="4_vtle1"]
+[ext_resource type="Script" uid="uid://dlxgk2fnaglrg" path="res://Player/Scripts/player_charge_attack_state.gd" id="5_fhl08"]
+[ext_resource type="Script" uid="uid://sjxgqmc0wbfb" path="res://Player/Scripts/player_attack_state.gd" id="6_vtle1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_od3ui"]
+bounce = 0.69
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
+radius = 8.0
 
-[node name="Player" type="CharacterBody2D" unique_id=594815888]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x3vf3"]
+bounce = 0.69
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_od3ui"]
+radius = 7.0
+
+[node name="Player" type="RigidBody2D" unique_id=18931073 groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_od3ui")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 6
+linear_damp = 10.0
+script = ExtResource("1_gwnis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609213833]
 shape = SubResource("CircleShape2D_q3lat")
 
 [node name="StateManager" type="Node2D" parent="." unique_id=146469840]
-script = ExtResource("1_3qydi")
+script = ExtResource("2_k53q1")
 
-[node name="IdleState" type="Node2D" parent="StateManager" unique_id=902340786]
+[node name="RunState" type="Node2D" parent="StateManager" unique_id=902340786]
+script = ExtResource("3_fhl08")
+
+[node name="StunnedState" type="Node2D" parent="StateManager" unique_id=2081339647]
+script = ExtResource("4_k53q1")
+
+[node name="ChargeAttackState" type="Node2D" parent="StateManager" unique_id=1477116596]
+script = ExtResource("5_fhl08")
+
+[node name="AttackState" type="Node2D" parent="StateManager" unique_id=1845435966 node_paths=PackedStringArray("anim", "ball_rotation_point", "ball")]
+script = ExtResource("6_vtle1")
+anim = NodePath("")
+ball_rotation_point = NodePath("../../RotationPointBoxer")
+ball = NodePath("../../RotationPointBoxer/AnimatableBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=892463765]
+texture = ExtResource("4_vtle1")
+
+[node name="RotationPointBoxer" type="Node2D" parent="." unique_id=2039807927]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="RotationPointBoxer" unique_id=185730922]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_x3vf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationPointBoxer/AnimatableBody2D" unique_id=576620339]
+shape = SubResource("CircleShape2D_od3ui")
