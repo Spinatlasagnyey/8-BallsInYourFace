@@ -26,6 +26,7 @@ func update(delta: float) -> void:
 func fixed_update(delta: float) -> void:
 	if check_for_stun():
 		state_manager.change_state(stunned_state)
+		
 
 func on_state_end():
 	entity.linear_damp = 10
