@@ -12,11 +12,11 @@ func on_state_start():
 func update(delta: float) -> void:
 	if(true == state_manager.check_state_timer_timeout()):
 		state_manager.change_state(idle_state)
-	
+
 func fixed_update(delta: float) -> void:
-	pass
-	
-	
+	if not entity.get_colliding_bodies().is_empty():
+		state_manager.change_state(stunned_state)
+
 func on_state_end():
 	effect_dash.emitting = false
 	entity.linear_damp = 0
