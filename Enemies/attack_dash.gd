@@ -3,8 +3,6 @@ extends EnemyState
 @export var time: float = 5.0
 @export var effect_dash: GPUParticles2D;
 
-
-
 func on_state_start():
 	effect_dash.emitting = true
 	entity.linear_damp = 2.0
