@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="8BallsInYourFace"
-run/main_scene="uid://cbj6k1csmiww7"
+run/main_scene="uid://3ojx5nujhvee"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/image="uid://b03vk4h1emu3f"
 config/icon="res://icon.svg"
@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 GameState="*uid://dm7yyiokprget"
 GlobalEventSystem="*uid://cfjq8283084gh"
 GlobalEventSfx="*uid://dmxr1sn5urhni"
+ScreenTransitionManager="*uid://b7mjqd4us8x2a"
 
 [display]
 

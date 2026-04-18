@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bm0rp0ws2n8fv"]
+
+[ext_resource type="Shader" uid="uid://g0dfsnmdo5ba" path="res://Components/Shader/pixel_dissolve_screen.gdshader" id="1_341sn"]
+
+[resource]
+shader = ExtResource("1_341sn")
+shader_parameter/progress = 0.0
+shader_parameter/seed = 1.0
+shader_parameter/randomness = 0.0
+shader_parameter/pixelate = false
+shader_parameter/pixel_count = 10.0
+shader_parameter/from_point = Vector2(0, 0.5)

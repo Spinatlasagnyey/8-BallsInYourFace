@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://gr8dka0vpqjb"]
+
+[ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="1_hnbyl"]
+
+[resource]
+shader = ExtResource("1_hnbyl")
+shader_parameter/amount_x = 256.0
+shader_parameter/amount_y = 256.0

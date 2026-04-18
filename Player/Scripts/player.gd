@@ -15,5 +15,3 @@ func _physics_process(delta: float) -> void:
 			Engine.time_scale = 1
 		else:
 			GlobalEventSfx.sfx_balls_collision_walls.emit()
-			
-			

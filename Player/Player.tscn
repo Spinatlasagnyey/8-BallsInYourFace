@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bvvx6xua2hcvu"]
+[gd_scene format=3 uid="uid://chf6kdydpc3pl"]
 
 [ext_resource type="Script" uid="uid://qoxt74ojbj3j" path="res://Player/Scripts/player.gd" id="1_gwnis"]
 [ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="2_k53q1"]
+[ext_resource type="Texture2D" uid="uid://cg37e0eqgvqbb" path="res://Components/Shader/colorful_gradiant.tres" id="2_roy6y"]
 [ext_resource type="Script" uid="uid://cnamxcqh8rl6y" path="res://Player/Scripts/player_idle_state.gd" id="3_fhl08"]
 [ext_resource type="Script" uid="uid://c5u1io1y3dtt8" path="res://Player/Scripts/player_stunned_state.gd" id="4_k53q1"]
 [ext_resource type="Script" uid="uid://dlxgk2fnaglrg" path="res://Player/Scripts/player_charge_attack_state.gd" id="5_fhl08"]
@@ -11,13 +12,13 @@
 [ext_resource type="Script" uid="uid://dey3j4hwt0uyu" path="res://Player/Scripts/player_death_behaviour.gd" id="9_00tjw"]
 [ext_resource type="AudioStream" uid="uid://bl8ttr53kbeex" path="res://Audio/Balls1.wav" id="10_5wa8t"]
 [ext_resource type="AudioStream" uid="uid://erg1mdjcdr5p" path="res://Audio/Balls2wav.wav" id="11_p7tob"]
-[ext_resource type="Script" uid="uid://1df6nl03b1w8" path="res://Player/Scripts/collision_balls_sfx.gd" id="12_5wa8t"]
-[ext_resource type="Script" uid="uid://ryv2uo4jn3uy" path="res://Player/Scripts/collision_walls_sfx.gd" id="13_p7tob"]
+[ext_resource type="Script" path="res://Player/Scripts/collision_balls_sfx.gd" id="12_5wa8t"]
+[ext_resource type="Script" path="res://Player/Scripts/collision_walls_sfx.gd" id="13_p7tob"]
 [ext_resource type="AudioStream" uid="uid://bef8bimqdc7g4" path="res://Audio/BallsWall1.wav" id="14_3mea3"]
 [ext_resource type="AudioStream" uid="uid://b5bmbrybw0r4q" path="res://Audio/Wall2.wav" id="15_7v5gs"]
 [ext_resource type="AudioStream" uid="uid://cosl5ycpwbclf" path="res://Audio/Fähigkeit.wav" id="16_3nb2p"]
-[ext_resource type="Script" uid="uid://dcg8ss6xomqqf" path="res://Player/Scripts/player_power_up_sfx.gd" id="16_8sa4y"]
-[ext_resource type="Script" uid="uid://cxb5ncouir0km" path="res://Player/Scripts/player_power_move_sfx.gd" id="17_3nb2p"]
+[ext_resource type="Script" path="res://Player/Scripts/player_power_up_sfx.gd" id="16_8sa4y"]
+[ext_resource type="Script" path="res://Player/Scripts/player_power_move_sfx.gd" id="17_3nb2p"]
 [ext_resource type="AudioStream" uid="uid://dblwgpeqyypu2" path="res://Audio/V2sHOOOT.wav" id="18_d7xyo"]
 [ext_resource type="Texture2D" uid="uid://c50bl7w6vvwbb" path="res://Asset/PlayerStun2.png" id="20_n471f"]
 
@@ -27,12 +28,19 @@ bounce = 0.69
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
 radius = 8.0
 
-[sub_resource type="Gradient" id="Gradient_od3ui"]
-offsets = PackedFloat32Array(0, 0.58230454, 0.8497942)
-colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_evw08"]
+offsets = PackedFloat32Array(0.686722, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_00tjw"]
-gradient = SubResource("Gradient_od3ui")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_roy6y"]
+gradient = SubResource("Gradient_evw08")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u5tep"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_roy6y")
+color_initial_ramp = ExtResource("2_roy6y")
 
 [sub_resource type="Gradient" id="Gradient_vtle1"]
 offsets = PackedFloat32Array(0.08024691, 0.50823045, 1)
@@ -54,14 +62,15 @@ particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
-emission_ring_radius = 20.0
-emission_ring_inner_radius = 13.0
+emission_ring_radius = 25.0
+emission_ring_inner_radius = 15.0
 emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -50.0
 radial_accel_max = -40.0
+scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_od3ui")
-color_initial_ramp = SubResource("GradientTexture1D_00tjw")
+color_initial_ramp = ExtResource("2_roy6y")
 hue_variation_min = -0.35000002
 hue_variation_max = 0.99999994
 hue_variation_curve = SubResource("CurveTexture_apopc")
@@ -109,9 +118,16 @@ script = ExtResource("1_gwnis")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609213833]
 shape = SubResource("CircleShape2D_q3lat")
 
+[node name="DashParticles" type="GPUParticles2D" parent="." unique_id=1165921457]
+amount = 265
+lifetime = 0.8
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_u5tep")
+
 [node name="charge_particles" type="GPUParticles2D" parent="." unique_id=2101332840]
 emitting = false
 amount = 128
+trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_00tjw")
 
 [node name="StateManager" type="Node2D" parent="." unique_id=146469840]
@@ -162,6 +178,7 @@ collision_sounds = Array[AudioStream]([ExtResource("14_3mea3"), ExtResource("15_
 
 [node name="PowerUpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1592345716]
 stream = ExtResource("16_3nb2p")
+pitch_scale = 2.0
 script = ExtResource("16_8sa4y")
 
 [node name="PowerMoveSFX" type="AudioStreamPlayer2D" parent="." unique_id=829578357]

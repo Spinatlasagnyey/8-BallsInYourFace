@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://3ojx5nujhvee"]
+
+[ext_resource type="Script" uid="uid://bpektgw5t7323" path="res://Level/Menu/start_game_button.gd" id="2_p61uw"]
+[ext_resource type="PackedScene" uid="uid://lxkfpiqp8wua" path="res://Level/LevelTest.tscn" id="3_p61uw"]
+
+[sub_resource type="Gradient" id="Gradient_5q24v"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mi1ve"]
+gradient = SubResource("Gradient_5q24v")
+width = 600
+height = 400
+fill_from = Vector2(0, 0.41880342)
+
+[sub_resource type="Theme" id="Theme_qy5lp"]
+default_font_size = 60
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1068518791]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1726112284]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("GradientTexture2D_mi1ve")
+script = ExtResource("2_p61uw")
+scene = ExtResource("3_p61uw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton" unique_id=985692141]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -50.5
+offset_right = 75.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_qy5lp")
+bbcode_enabled = true
+text = "[shake rate=50.0 level=30 connected=1][rainbow freq=2.0 sat=0.8 val=0.8 speed=1.0]Play[/rainbow][/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
