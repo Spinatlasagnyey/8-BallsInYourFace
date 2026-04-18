@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://06j7wxvaq2tl" path="res://Enemies/Scripts/enemy_death_behavior.gd" id="8_ikgc1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ikgc1"]
-bounce = 0.5
+bounce = 0.69
 
 [sub_resource type="Gradient" id="Gradient_n1bor"]
 offsets = PackedFloat32Array(0.70652175, 1)

@@ -11,11 +11,11 @@ func update(delta: float) -> void:
 		state_manager.change_state(charge_attack_state)
 
 func fixed_update(delta: float) -> void:
-	var direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down")).normalized()
-	if entity.linear_velocity.length() < max_speed:
-		entity.apply_force(direction * acceleration)
+	#var direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down")).normalized()
+	#if entity.linear_velocity.length() < max_speed:
+		#entity.apply_force(direction * acceleration)
 	
-	if not entity.get_colliding_bodies().is_empty() and entity.get_colliding_bodies()[0].is_in_group("enemies"):
+	if check_for_stun():
 		state_manager.change_state(stunned_state)
 
 func on_state_end():

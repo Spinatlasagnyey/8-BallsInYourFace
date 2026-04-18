@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="2_krjbt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_krjbt"]
-bounce = 0.5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krjbt"]
 texture = ExtResource("1_ln08b")
