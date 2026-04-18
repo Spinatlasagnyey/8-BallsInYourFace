@@ -26,6 +26,7 @@ GlobalEventSfx="*uid://dmxr1sn5urhni"
 
 window/size/viewport_width=600
 window/size/viewport_height=400
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
@@ -43,6 +44,7 @@ folder_colors={
 [global_group]
 
 enemies=""
+navigation_obstacle=""
 
 [input]
 

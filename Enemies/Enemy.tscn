@@ -91,8 +91,9 @@ process_material = SubResource("ParticleProcessMaterial_n1bor")
 [node name="StateManager" type="Node2D" parent="." unique_id=802023475]
 script = ExtResource("1_bkvnc")
 
-[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122]
+[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122 node_paths=PackedStringArray("agent")]
 script = ExtResource("3_jcwuj")
+agent = NodePath("../../NavigationAgent2D")
 
 [node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913 node_paths=PackedStringArray("effect")]
 script = ExtResource("3_biruh")
@@ -118,5 +119,9 @@ shape = SubResource("CircleShape2D_jcwuj")
 
 [node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("6_n1bor")]
 script = ExtResource("8_ikgc1")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1724959654]
+path_desired_distance = 8.0
+debug_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="StateManager/IdleState" method="_on_area_2d_body_entered"]
