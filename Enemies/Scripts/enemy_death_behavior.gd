@@ -1,6 +1,8 @@
 extends DeathBehavior
 
 func on_death(hole_position) -> void:
+	GameState.add_score(500, self.global_position)
+	
 	object.linear_damp = 1000
 		
 	var tween_scale: Tween = self.get_parent().create_tween()
