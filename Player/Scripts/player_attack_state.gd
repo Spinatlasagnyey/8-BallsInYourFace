@@ -24,7 +24,7 @@ func update(delta: float) -> void:
 		GlobalEventSfx.sfx_balls_shoot.emit(false)
 
 func fixed_update(delta: float) -> void:
-	if not entity.get_colliding_bodies().is_empty():
+	if not entity.get_colliding_bodies().is_empty() and entity.get_colliding_bodies()[0].is_in_group("enemies"):
 		state_manager.change_state(stunned_state)
 
 func on_state_end():

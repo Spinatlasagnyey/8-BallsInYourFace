@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="6_n1bor"]
 [ext_resource type="Script" uid="uid://06j7wxvaq2tl" path="res://Enemies/Scripts/enemy_death_behavior.gd" id="8_ikgc1"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ikgc1"]
+bounce = 0.5
+
 [sub_resource type="Gradient" id="Gradient_n1bor"]
 offsets = PackedFloat32Array(0.70652175, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -59,6 +62,7 @@ radius = 103.09
 [node name="Enemy" type="RigidBody2D" unique_id=853872974 groups=["enemies"]]
 collision_layer = 3
 collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_ikgc1")
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
@@ -91,9 +95,10 @@ process_material = SubResource("ParticleProcessMaterial_n1bor")
 [node name="StateManager" type="Node2D" parent="." unique_id=802023475]
 script = ExtResource("1_bkvnc")
 
-[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122 node_paths=PackedStringArray("agent")]
+[node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122 node_paths=PackedStringArray("agent", "area")]
 script = ExtResource("3_jcwuj")
 agent = NodePath("../../NavigationAgent2D")
+area = NodePath("../../Area2D")
 
 [node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913 node_paths=PackedStringArray("effect")]
 script = ExtResource("3_biruh")
@@ -113,6 +118,8 @@ shape = SubResource("CircleShape2D_wdetw")
 texture = ExtResource("3_wdetw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1805235347]
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=918402325]
 shape = SubResource("CircleShape2D_jcwuj")
