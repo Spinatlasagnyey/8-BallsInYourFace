@@ -1,7 +1,7 @@
 class_name BaseState
 extends Node2D
 
-var entity:CharacterBody2D
+var entity:RigidBody2D
 var state_manager:StateManager
 
 func on_state_start():

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="8BallsInYourFace"
+run/main_scene="uid://cbj6k1csmiww7"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
@@ -23,11 +24,16 @@ folder_colors={
 "res://Player/": "blue"
 }
 
+[global_group]
+
+enemies=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"

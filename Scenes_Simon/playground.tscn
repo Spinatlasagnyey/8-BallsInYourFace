@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d0eg6gofqgag7"]
+
+[ext_resource type="Texture2D" uid="uid://dvn55tbl1s8lg" path="res://Enemies/Sprites/ZombieProto.png" id="1_kll6e"]
+[ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="1_u1lg2"]
+[ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="3_gnhtr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kll6e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kll6e"]
+bounce = 1.25
+
+[node name="Playground" type="Node2D" unique_id=1986212809]
+
+[node name="Player" type="RigidBody2D" parent="." unique_id=80962393 groups=["player"]]
+position = Vector2(720, 282)
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1131935065]
+texture = ExtResource("1_kll6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1106933044]
+shape = SubResource("CircleShape2D_kll6e")
+
+[node name="Enemy" parent="." unique_id=853872974 instance=ExtResource("1_u1lg2")]
+position = Vector2(577, 508)
+physics_material_override = SubResource("PhysicsMaterial_kll6e")
+angular_damp = 0.0
+
+[node name="IdleState" parent="Enemy/StateManager" parent_id_path=PackedInt32Array(853872974, 802023475) index="0" unique_id=476906122 node_paths=PackedStringArray("player2")]
+player2 = NodePath("../../../Player")
+
+[node name="PrepareState" parent="Enemy/StateManager" parent_id_path=PackedInt32Array(853872974, 802023475) index="1" unique_id=97990913 node_paths=PackedStringArray("effect")]
+effect = NodePath("../../PowerUp")
+
+[node name="Hole" parent="." unique_id=307543945 instance=ExtResource("3_gnhtr")]
+position = Vector2(766, 433)
+
+[editable path="Enemy"]

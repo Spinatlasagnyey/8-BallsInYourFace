@@ -1,17 +1,111 @@
 [gd_scene format=3 uid="uid://cbj6k1csmiww7"]
 
-[ext_resource type="Script" uid="uid://da5eowrmcluob" path="res://Enemies/Scripts/enemy.gd" id="1_4isyn"]
 [ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="1_bkvnc"]
+[ext_resource type="Script" uid="uid://dor8ooohbowsy" path="res://Enemies/attack_dash.gd" id="1_jcwuj"]
+[ext_resource type="Script" uid="uid://dbr6whpbvex3b" path="res://Enemies/prepare_state.gd" id="3_biruh"]
+[ext_resource type="Script" uid="uid://do1wspt4up1ae" path="res://Enemies/Scripts/enemy_idle_state.gd" id="3_jcwuj"]
+[ext_resource type="Texture2D" uid="uid://dvn55tbl1s8lg" path="res://Enemies/Sprites/ZombieProto.png" id="3_wdetw"]
+[ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="6_n1bor"]
+
+[sub_resource type="Gradient" id="Gradient_n1bor"]
+offsets = PackedFloat32Array(0.70652175, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a5aut"]
+gradient = SubResource("Gradient_n1bor")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ikgc1"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 41.0
+orbit_velocity_min = -1.061
+orbit_velocity_max = 2.0000002
+radial_velocity_min = -211.10002
+radial_velocity_max = 33.799976
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -78.35
+radial_accel_max = 99.99999
+scale_min = 0.0
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+color_ramp = SubResource("GradientTexture1D_a5aut")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n1bor"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+angle_min = -51.39999
+angle_max = 700.2
+inherit_velocity_ratio = 0.226
+direction = Vector3(-100, 0, 0)
+initial_velocity_min = 51.02
+initial_velocity_max = 58.16
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 30.859983
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 42.139996
+damping_max = 3.7470002
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdetw"]
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1887775050]
-script = ExtResource("1_4isyn")
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcwuj"]
+radius = 103.09
+
+[node name="Enemy" type="RigidBody2D" unique_id=853872974 groups=["enemies"]]
+gravity_scale = 0.0
+angular_damp = 10.0
+
+[node name="PowerUp" type="GPUParticles2D" parent="." unique_id=1017661227]
+emitting = false
+amount = 750
+preprocess = 1.07
+explosiveness = 0.14
+randomness = 1.0
+fixed_fps = 60
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_ikgc1")
+
+[node name="AttackFX" type="GPUParticles2D" parent="." unique_id=178918456]
+emitting = false
+amount = 400
+interp_to_end = 0.007
+one_shot = true
+preprocess = 1.19
+speed_scale = 2.26
+randomness = 1.0
+fixed_fps = 60
+collision_base_size = 0.0
+visibility_rect = Rect2(-100, -100, 200.26, 200)
+process_material = SubResource("ParticleProcessMaterial_n1bor")
 
 [node name="StateManager" type="Node2D" parent="." unique_id=802023475]
 script = ExtResource("1_bkvnc")
 
 [node name="IdleState" type="Node2D" parent="StateManager" unique_id=476906122]
+script = ExtResource("3_jcwuj")
+
+[node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913]
+script = ExtResource("3_biruh")
+
+[node name="DashState" type="Node2D" parent="StateManager" unique_id=465474441 node_paths=PackedStringArray("effect_dash")]
+script = ExtResource("1_jcwuj")
+effect_dash = NodePath("../../AttackFX")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83165571]
 shape = SubResource("CircleShape2D_wdetw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=834618559]
+texture = ExtResource("3_wdetw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1805235347]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=918402325]
+shape = SubResource("CircleShape2D_jcwuj")
+
+[node name="DeathBehaivor" parent="." unique_id=485860911 node_paths=PackedStringArray("object") instance=ExtResource("6_n1bor")]
+object = NodePath("..")
+
+[connection signal="body_entered" from="Area2D" to="StateManager/IdleState" method="_on_area_2d_body_entered"]
