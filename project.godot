@@ -13,12 +13,14 @@ config_version=5
 config/name="8BallsInYourFace"
 run/main_scene="uid://cbj6k1csmiww7"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/image="uid://b03vk4h1emu3f"
 config/icon="res://icon.svg"
 
 [file_customization]
 
 folder_colors={
 "res://Components/": "gray",
+"res://Debug/": "teal",
 "res://Enemies/": "red",
 "res://Enviroment/": "green",
 "res://Player/": "blue"
