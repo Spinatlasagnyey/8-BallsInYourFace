@@ -21,6 +21,7 @@ func on_state_start():
 func update(delta: float) -> void:
 	if state_manager.check_state_timer_timeout():
 		state_manager.change_state(run_state)
+		GlobalEventSfx.sfx_balls_shoot.emit(false)
 
 func fixed_update(delta: float) -> void:
 	if not entity.get_colliding_bodies().is_empty():

@@ -61,12 +61,6 @@ position = Vector2(478, 356)
 physics_material_override = SubResource("PhysicsMaterial_kll6e")
 angular_damp = 0.0
 
-[node name="IdleState" parent="Enemy/StateManager" parent_id_path=PackedInt32Array(853872974, 802023475) index="0" unique_id=476906122 node_paths=PackedStringArray("player2")]
-player2 = NodePath("../../../Player")
-
-[node name="PrepareState" parent="Enemy/StateManager" parent_id_path=PackedInt32Array(853872974, 802023475) index="1" unique_id=97990913 node_paths=PackedStringArray("effect")]
-effect = NodePath("../../PowerUp")
-
 [node name="Hole" parent="." unique_id=307543945 instance=ExtResource("3_gnhtr")]
 z_index = -1
 position = Vector2(766, 433)

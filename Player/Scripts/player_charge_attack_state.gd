@@ -6,10 +6,12 @@ var charge: float = 1
 func on_state_start():
 	charge = 1
 	charge_particles.emitting = true
+	GlobalEventSfx.sfx_balls_power_up.emit(true)
 
 func update(delta: float) -> void:
 	charge += delta
 	if Input.is_action_just_released("attack"):
+		GlobalEventSfx.sfx_balls_power_up.emit(false)
 		state_manager.change_state(attack_state)
 
 func fixed_update(delta: float) -> void:
@@ -18,3 +20,4 @@ func fixed_update(delta: float) -> void:
 
 func on_state_end():
 	charge_particles.emitting = false
+	GlobalEventSfx.sfx_balls_shoot.emit(true)

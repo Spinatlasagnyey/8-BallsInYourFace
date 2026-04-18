@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cxrfbqqnfa6t0"]
 
-[ext_resource type="PackedScene" uid="uid://82q5jrsjaydo" path="res://Player/player.tscn" id="1_cy7jr"]
+[ext_resource type="PackedScene" uid="uid://37ibddol510q" path="res://Player/player.tscn" id="1_cy7jr"]
 [ext_resource type="PackedScene" uid="uid://dtcnefy4plx5o" path="res://Debug/PlayBalls/play_ball.tscn" id="2_cy7jr"]
+[ext_resource type="AudioStream" uid="uid://cne8djcp2l1yi" path="res://Audio/song.wav" id="3_ulyo0"]
+[ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="4_du46l"]
 
 [node name="PlaygroundLinus" type="Node2D" unique_id=834243188]
 
@@ -11,3 +13,11 @@ position = Vector2(353, 162)
 [node name="PlayBall" parent="." unique_id=1303888406 instance=ExtResource("2_cy7jr")]
 position = Vector2(630, 292)
 gravity_scale = 0.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1320121844]
+stream = ExtResource("3_ulyo0")
+volume_db = -2.557
+autoplay = true
+
+[node name="Hole" parent="." unique_id=307543945 instance=ExtResource("4_du46l")]
+position = Vector2(385, 251)
