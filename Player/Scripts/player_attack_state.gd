@@ -10,7 +10,7 @@ func on_state_start():
 	#var tween = self.get_tree().create_tween()
 	state_manager.start_state_timer(attack_duration)
 	entity.linear_damp = 0
-	entity.apply_impulse((get_global_mouse_position() - global_position).normalized() * (700 + (charge_attack_state.charge * 100)))
+	entity.apply_impulse((get_global_mouse_position() - global_position).normalized() * min(100 + (charge_attack_state.charge * 200), 1800))
 	ball_rotation_point.look_at(get_global_mouse_position())
 	#await tween.tween_property(ball, "position", Vector2(attack_range, 0), 0.3/charge_attack_state.charge).finished
 	#ball.get_node("CollisionShape2D").disabled = true
@@ -24,7 +24,7 @@ func update(delta: float) -> void:
 		GlobalEventSfx.sfx_balls_shoot.emit(false)
 
 func fixed_update(delta: float) -> void:
-	if not entity.get_colliding_bodies().is_empty() and entity.get_colliding_bodies()[0].is_in_group("enemies"):
+	if check_for_stun():
 		state_manager.change_state(stunned_state)
 
 func on_state_end():

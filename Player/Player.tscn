@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cbqkxawik6qbr"]
+[gd_scene format=3 uid="uid://66iacqebclur"]
 
 [ext_resource type="Script" uid="uid://qoxt74ojbj3j" path="res://Player/Scripts/player.gd" id="1_gwnis"]
 [ext_resource type="Script" uid="uid://ye51t1160st6" path="res://Components/State/state_manager.gd" id="2_k53q1"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c50bl7w6vvwbb" path="res://Asset/PlayerStun2.png" id="20_n471f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_od3ui"]
-bounce = 0.5
+bounce = 0.69
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
 radius = 8.0
