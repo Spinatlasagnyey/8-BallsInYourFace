@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dtcnefy4plx5o"]
+
+[ext_resource type="Script" uid="uid://bqn4wf6tjqie1" path="res://Debug/PlayBalls/play_ball.gd" id="1_3kunf"]
+[ext_resource type="Texture2D" uid="uid://dvn55tbl1s8lg" path="res://Enemies/Sprites/ZombieProto.png" id="2_t0df5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyuq2"]
+radius = 8.0
+
+[node name="PlayBall" type="RigidBody2D" unique_id=1303888406]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_3kunf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=591197487]
+shape = SubResource("CircleShape2D_uyuq2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1865477069]
+texture = ExtResource("2_t0df5")

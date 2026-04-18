@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cxrfbqqnfa6t0"]
+
+[ext_resource type="PackedScene" uid="uid://82q5jrsjaydo" path="res://Player/player.tscn" id="1_cy7jr"]
+[ext_resource type="PackedScene" uid="uid://dtcnefy4plx5o" path="res://Debug/PlayBalls/play_ball.tscn" id="2_cy7jr"]
+
+[node name="PlaygroundLinus" type="Node2D" unique_id=834243188]
+
+[node name="Player2" parent="." unique_id=18931073 groups=["player"] instance=ExtResource("1_cy7jr")]
+position = Vector2(353, 162)
+
+[node name="PlayBall" parent="." unique_id=1303888406 instance=ExtResource("2_cy7jr")]
+position = Vector2(630, 292)
+gravity_scale = 0.0

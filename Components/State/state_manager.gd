@@ -14,6 +14,12 @@ func _ready() -> void:
 			state = child
 			state.on_state_start()
 			break
+	
+	for child in get_children():
+		if child is BaseState:
+			states.append(child)
+			child.entity = get_parent()
+			child.state_manager = self
 
 func change_state(new_state):
 	if state:
