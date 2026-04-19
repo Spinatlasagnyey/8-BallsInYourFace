@@ -5,7 +5,10 @@
 [ext_resource type="Script" uid="uid://dor8ooohbowsy" path="res://Enemies/attack_dash.gd" id="1_jcwuj"]
 [ext_resource type="Script" uid="uid://dbr6whpbvex3b" path="res://Enemies/prepare_state.gd" id="3_biruh"]
 [ext_resource type="Script" uid="uid://do1wspt4up1ae" path="res://Enemies/Scripts/enemy_idle_state.gd" id="3_jcwuj"]
+[ext_resource type="Texture2D" uid="uid://6j812bx2855" path="res://Asset/Enemy3png.png" id="3_n2n7y"]
+[ext_resource type="Texture2D" uid="uid://d3drfbcplcii1" path="res://Asset/Enemy6.png" id="4_od5md"]
 [ext_resource type="Script" uid="uid://cneqlqpx3067i" path="res://Enemies/Scripts/enemy_stunned_state.gd" id="5_a5aut"]
+[ext_resource type="Texture2D" uid="uid://wuulisog2a3v" path="res://Asset/Enemy12png.png" id="5_de0ly"]
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="6_n1bor"]
 [ext_resource type="Texture2D" uid="uid://bs5u07n5otjld" path="res://Asset/Enemy1.png" id="7_un6pf"]
 [ext_resource type="Script" uid="uid://06j7wxvaq2tl" path="res://Enemies/Scripts/enemy_death_behavior.gd" id="8_ikgc1"]
@@ -59,7 +62,7 @@ damping_max = 3.7470002
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdetw"]
 
-[node name="Enemy" type="RigidBody2D" unique_id=853872974 groups=["enemies"]]
+[node name="Enemy" type="RigidBody2D" unique_id=853872974 node_paths=PackedStringArray("sprite") groups=["enemies"]]
 collision_layer = 3
 collision_mask = 3
 mass = 0.5
@@ -70,6 +73,8 @@ max_contacts_reported = 1
 linear_damp = 10.0
 angular_damp = 10.0
 script = ExtResource("1_da7ms")
+textures = Array[CompressedTexture2D]([ExtResource("7_un6pf"), ExtResource("3_n2n7y"), ExtResource("4_od5md"), ExtResource("5_de0ly")])
+sprite = NodePath("Sprite2D")
 
 [node name="PowerUp" type="GPUParticles2D" parent="." unique_id=1017661227]
 emitting = false
@@ -119,7 +124,7 @@ script = ExtResource("5_a5aut")
 shape = SubResource("CircleShape2D_wdetw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=834618559]
-texture = ExtResource("7_un6pf")
+texture = ExtResource("5_de0ly")
 
 [node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("6_n1bor")]
 script = ExtResource("8_ikgc1")

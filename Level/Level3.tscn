@@ -73,6 +73,7 @@ shader_parameter/amount_y = 256.0
 
 [node name="Player" parent="." unique_id=18931073 instance=ExtResource("1_6wyin")]
 position = Vector2(87, 112)
+linear_damp = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1763088973]
 zoom = Vector2(1.1, 1.1)
@@ -84,18 +85,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("2_366pm")
-
-[node name="Enemy" parent="." unique_id=853872974 instance=ExtResource("3_x3hc7")]
-position = Vector2(551, 334)
-script = null
-
-[node name="Enemy2" parent="." unique_id=1964985572 instance=ExtResource("3_x3hc7")]
-position = Vector2(175, 335)
-script = null
-
-[node name="Enemy3" parent="." unique_id=367364151 instance=ExtResource("3_x3hc7")]
-position = Vector2(390, 89)
-script = null
 
 [node name="GameManager" parent="." unique_id=1695299218 instance=ExtResource("4_p4jbx")]
 score_up_label = ExtResource("5_k8mhs")
@@ -149,5 +138,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Enemy" parent="." unique_id=853872974 instance=ExtResource("3_x3hc7")]
+position = Vector2(520, 331)
+
+[node name="Enemy3" parent="." unique_id=601939567 instance=ExtResource("3_x3hc7")]
+position = Vector2(156, 339)
+
+[node name="Enemy2" parent="." unique_id=1810236506 instance=ExtResource("3_x3hc7")]
+position = Vector2(455, 199)
 
 [editable path="TileMap1"]
