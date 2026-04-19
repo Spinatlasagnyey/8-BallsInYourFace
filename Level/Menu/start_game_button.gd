@@ -1,6 +1,6 @@
 extends TextureButton
 
-@export var scene: PackedScene
+@export var scene: String
 
 func _on_pressed() -> void:
 	GlobalEventSystem.change_scene.emit(scene)

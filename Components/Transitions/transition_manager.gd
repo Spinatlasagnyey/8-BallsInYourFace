@@ -8,10 +8,10 @@ func _ready() -> void:
 	GlobalEventSystem.change_scene.connect(change_scene)
 	GlobalEventSystem.reload_scene.connect(reload_scene)
 
-func change_scene(scene: PackedScene):
+func change_scene(scene: String):
 	anim.play("ball_fade_out")
 	await anim.animation_finished
-	get_tree().change_scene_to_packed(scene)
+	get_tree().change_scene_to_file(scene)
 	anim.play("ball_fade_in")
 
 func reload_scene():

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var next_scene: PackedScene
+@export var next_scene: String
 
 func _ready() -> void:
 	GlobalEventSystem.level_cleared.connect(appear)

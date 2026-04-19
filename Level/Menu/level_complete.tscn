@@ -15,14 +15,14 @@ default_font = ExtResource("4_w31kb")
 [sub_resource type="Gradient" id="Gradient_gjabh"]
 colors = PackedColorArray(1, 0.7448196, 0.7031971, 0.48235294, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_oncao"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fhkqh"]
 gradient = SubResource("Gradient_gjabh")
 
 [sub_resource type="Curve" id="Curve_5hwmy"]
 _data = [Vector2(0, 0.784997), 0.0, 0.0, 0, 0, Vector2(0.36821708, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fufo6"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_w31kb"]
 curve_y = SubResource("Curve_5hwmy")
 
 [sub_resource type="Curve" id="Curve_ex1we"]
@@ -30,7 +30,7 @@ _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.39534882, -200), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ewiib"]
+[sub_resource type="CurveTexture" id="CurveTexture_70yjj"]
 curve = SubResource("Curve_ex1we")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k03cv"]
@@ -40,12 +40,12 @@ initial_velocity_min = 76.119995
 initial_velocity_max = 304.47998
 directional_velocity_min = 1.0
 directional_velocity_max = 1.0
-directional_velocity_curve = SubResource("CurveXYZTexture_fufo6")
+directional_velocity_curve = SubResource("CurveXYZTexture_w31kb")
 gravity = Vector3(0, 100, 0)
-linear_accel_curve = SubResource("CurveTexture_ewiib")
+linear_accel_curve = SubResource("CurveTexture_70yjj")
 scale_min = 7.9199996
 scale_max = 10.0
-color_ramp = SubResource("GradientTexture1D_oncao")
+color_ramp = SubResource("GradientTexture1D_fhkqh")
 color_initial_ramp = ExtResource("6_8caa1")
 
 [node name="LevelComplete" type="CanvasLayer" unique_id=906160121]

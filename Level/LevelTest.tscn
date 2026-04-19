@@ -10,7 +10,6 @@
 [ext_resource type="Material" uid="uid://gr8dka0vpqjb" path="res://Components/Shader/balls_shader_res.tres" id="7_8ey1b"]
 [ext_resource type="PackedScene" uid="uid://b18f3af6e3prp" path="res://Level/Menu/level_complete.tscn" id="8_lss7e"]
 [ext_resource type="PackedScene" uid="uid://bq1at1w45c3rn" path="res://Components/SmokeTail/smoketrail.tscn" id="9_lss7e"]
-[ext_resource type="PackedScene" uid="uid://3ojx5nujhvee" path="res://Level/Menu/menu.tscn" id="11_ioqtx"]
 [ext_resource type="Script" uid="uid://f7tilsotbo7o" path="res://Level/rich_text_label.gd" id="11_wi5e0"]
 
 [sub_resource type="GDScript" id="GDScript_6sima"]
@@ -96,6 +95,6 @@ bbcode_enabled = true
 script = ExtResource("11_wi5e0")
 
 [node name="LevelComplete2" parent="." unique_id=1571187937 instance=ExtResource("8_lss7e")]
-next_scene = ExtResource("11_ioqtx")
+next_scene = "res://Level/Menu/menu.tscn"
 
 [editable path="TileMap1"]
