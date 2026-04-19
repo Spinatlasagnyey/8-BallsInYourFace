@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://Player/Scripts/player_power_move_sfx.gd" id="17_3nb2p"]
 [ext_resource type="AudioStream" uid="uid://dblwgpeqyypu2" path="res://Audio/V2sHOOOT.wav" id="18_d7xyo"]
 [ext_resource type="Texture2D" uid="uid://c50bl7w6vvwbb" path="res://Asset/PlayerStun2.png" id="20_n471f"]
+[ext_resource type="Texture2D" uid="uid://dhefvujvb2g7k" path="res://Player/Sprites/Arrow (2).png" id="22_u5tep"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_od3ui"]
 bounce = 0.69
@@ -190,3 +191,8 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_7emwf")
 animation = &"stun"
 speed_scale = 0.6
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1279354262]
+modulate = Color(1, 1, 1, 0.3764706)
+texture = ExtResource("22_u5tep")
+offset = Vector2(16.145, 0)

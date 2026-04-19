@@ -19,3 +19,4 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		GlobalEventSystem.reload_scene.emit()
+	$Sprite2D2.look_at(get_global_mouse_position())
