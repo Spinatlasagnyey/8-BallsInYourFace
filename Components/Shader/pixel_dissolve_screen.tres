@@ -4,9 +4,9 @@
 
 [resource]
 shader = ExtResource("1_341sn")
-shader_parameter/progress = 0.0
+shader_parameter/progress = 1.0
 shader_parameter/seed = 1.0
 shader_parameter/randomness = 0.0
 shader_parameter/pixelate = false
 shader_parameter/pixel_count = 10.0
-shader_parameter/from_point = Vector2(0, 0.5)
+shader_parameter/from_point = Vector2(0.5, 0.5)

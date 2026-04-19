@@ -112,7 +112,7 @@ physics_material_override = SubResource("PhysicsMaterial_od3ui")
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 6
-linear_damp = 10.0
+linear_damp = 2.0
 script = ExtResource("1_gwnis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609213833]

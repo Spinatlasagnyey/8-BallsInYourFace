@@ -14,7 +14,7 @@ func update(delta: float) -> void:
 func fixed_update(delta: float) -> void:
 	ray.look_at(player.position)
 	if ray.get_collider() is Player:
-		entity.linear_damp = 10
+		entity.linear_damp = 2
 		state_manager.change_state(prepare_state)
 	#var next_position = agent.get_next_path_position()
 	#entity.look_at(global_position + next_position)

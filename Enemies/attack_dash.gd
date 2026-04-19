@@ -22,5 +22,5 @@ func fixed_update(delta: float) -> void:
 func on_state_end():
 	GlobalEventSfx.sfx_balls_shoot.emit(false)
 	effect_dash.emitting = false
-	entity.linear_damp = 0
+	entity.linear_damp = 2
 	sfx_dash.stop()

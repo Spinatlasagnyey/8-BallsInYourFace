@@ -5,7 +5,7 @@ extends PlayerBaseState
 
 
 func on_state_start():
-	entity.linear_damp = 1
+	entity.linear_damp = 2
 	state_manager.start_state_timer(stun_duration)
 	animation_stun.play()
 	
@@ -20,4 +20,4 @@ func fixed_update(delta: float) -> void:
 
 func on_state_end():
 	animation_stun.stop()
-	entity.linear_damp = 10
+	entity.linear_damp = 2

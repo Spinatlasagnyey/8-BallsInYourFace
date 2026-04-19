@@ -62,6 +62,7 @@ damping_max = 3.7470002
 [node name="Enemy" type="RigidBody2D" unique_id=853872974 groups=["enemies"]]
 collision_layer = 3
 collision_mask = 3
+mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_ikgc1")
 gravity_scale = 0.0
 contact_monitor = true

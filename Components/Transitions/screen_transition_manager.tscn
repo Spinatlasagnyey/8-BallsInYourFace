@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cclcxmysljbk5" path="res://Components/Transitions/transition_manager.gd" id="1_c5ty0"]
 [ext_resource type="Material" uid="uid://bm0rp0ws2n8fv" path="res://Components/Shader/pixel_dissolve_screen.tres" id="2_css5m"]
 [ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="3_5jbxc"]
+[ext_resource type="Texture2D" uid="uid://onh27qmx2ixm" path="res://Hole/Hole1.png" id="4_5cx5y"]
 
 [sub_resource type="Animation" id="Animation_btuml"]
 length = 0.033333335
@@ -32,7 +33,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("ColorRect:material:shader_parameter/from_point")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -41,6 +42,48 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_5jbxc"]
+resource_name = "ball_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 50), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_5cx5y"]
+resource_name = "ball_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(50, 50)]
 }
 
 [sub_resource type="Animation" id="Animation_uadb4"]
@@ -128,6 +171,8 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uadb4"]
 _data = {
 &"RESET": SubResource("Animation_btuml"),
+&"ball_fade_in": SubResource("Animation_5jbxc"),
+&"ball_fade_out": SubResource("Animation_5cx5y"),
 &"fade_in": SubResource("Animation_uadb4"),
 &"fade_out": SubResource("Animation_lgvpf")
 }
@@ -138,26 +183,48 @@ shader_parameter/amount_x = 256.0
 shader_parameter/amount_y = 256.0
 
 [node name="ScreenTransitionManager" type="CanvasLayer" unique_id=258947221 node_paths=PackedStringArray("anim") groups=["screen_transition_manager"]]
+layer = 100
 script = ExtResource("1_c5ty0")
 anim = NodePath("AnimationPlayer")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1169869278]
+visible = false
 material = ExtResource("2_css5m")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=223344226]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_5cx5y")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2081251811]
 libraries/ = SubResource("AnimationLibrary_uadb4")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1973113871]
-visible = false
 material = SubResource("ShaderMaterial_5cx5y")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
