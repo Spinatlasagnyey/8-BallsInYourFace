@@ -2,6 +2,7 @@ extends Node
 
 signal camerashake2D(amount: float)
 signal change_scene(scene)
+signal level_cleared()
 
 
 # Called when the node enters the scene tree for the first time.

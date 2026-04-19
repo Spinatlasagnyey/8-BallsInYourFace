@@ -20,7 +20,5 @@ func fixed_update(delta: float) -> void:
 		state_manager.change_state(stunned_state)
 
 func on_state_end():
-	GlobalEventSfx.sfx_balls_shoot.emit(false)
 	effect_dash.emitting = false
 	entity.linear_damp = 2
-	sfx_dash.stop()

@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://3ojx5nujhvee"]
 
+[ext_resource type="FontFile" uid="uid://bcx7iwlqg24wq" path="res://Level/Menu/clacon2.ttf" id="1_5q24v"]
+[ext_resource type="Texture2D" uid="uid://ciw3456el7ec1" path="res://Level/Menu/BigButton.png" id="1_i406k"]
+[ext_resource type="Texture2D" uid="uid://caru33bg8pqxg" path="res://Level/Menu/pressedBigButton.png" id="2_5q24v"]
 [ext_resource type="Script" uid="uid://bpektgw5t7323" path="res://Level/Menu/start_game_button.gd" id="2_p61uw"]
 [ext_resource type="PackedScene" uid="uid://lxkfpiqp8wua" path="res://Level/LevelTest.tscn" id="3_p61uw"]
 
-[sub_resource type="Gradient" id="Gradient_5q24v"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mi1ve"]
-gradient = SubResource("Gradient_5q24v")
-width = 10
-height = 10
-fill_from = Vector2(0, 0.41880342)
+[sub_resource type="Theme" id="Theme_mi1ve"]
+default_font = ExtResource("1_5q24v")
 
 [sub_resource type="Theme" id="Theme_qy5lp"]
 default_font_size = 60
@@ -24,14 +21,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -200.0
-offset_right = 300.0
-offset_bottom = 200.0
+offset_left = -258.0
+offset_top = -128.0
+offset_right = 254.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-texture_normal = SubResource("GradientTexture2D_mi1ve")
+pivot_offset_ratio = Vector2(0, 0.5)
+theme = SubResource("Theme_mi1ve")
+texture_normal = ExtResource("1_i406k")
+texture_pressed = ExtResource("2_5q24v")
+texture_hover = ExtResource("1_i406k")
+stretch_mode = 4
 script = ExtResource("2_p61uw")
 scene = ExtResource("3_p61uw")
 
@@ -40,12 +41,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 11.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_qy5lp")
 bbcode_enabled = true
-text = "[tornado radius=10.0 freq=20.0 connected=1][shake rate=100.0 level=30 connected=1][rainbow freq=10.0 sat=0.8 val=0.8 speed=1.0]Play[/rainbow][/shake]"
+text = "[tornado radius=1.0 freq=20.0 connected=1][shake rate=100.0 level=30 connected=1][rainbow freq=10.0 sat=0.8 val=0.8 speed=1.0]Play[/rainbow][/shake]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

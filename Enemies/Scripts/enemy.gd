@@ -9,4 +9,4 @@ func add_to_game_state():
 	tree_exiting.connect(remove_from_game_state)
 
 func remove_from_game_state():
-	GameState.enemies.erase(self)
+	GameState.remove_enemy(self)

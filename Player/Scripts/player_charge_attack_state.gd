@@ -10,7 +10,7 @@ func on_state_start():
 
 func update(delta: float) -> void:
 	charge += delta
-	charge_particles.amount = charge * 30
+	charge_particles.amount_ratio = charge/4
 	if Input.is_action_just_released("attack"):
 		GlobalEventSfx.sfx_balls_power_up.emit(false)
 		state_manager.change_state(attack_state)
