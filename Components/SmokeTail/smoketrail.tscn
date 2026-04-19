@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bq1at1w45c3rn"]
+
+[ext_resource type="Script" uid="uid://chj6wdcqt0b5p" path="res://Components/SmokeTail/smoketrail.gd" id="1_gbjns"]
+
+[sub_resource type="Curve" id="Curve_3vlip"]
+_data = [Vector2(0, 0.26848257), 0.0, 1.1439686, 0, 0, Vector2(0.9523809, 0.922179), -0.8952803, -0.8952803, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Smoketrail" type="Line2D" unique_id=459389723]
+width = 6.0
+width_curve = SubResource("Curve_3vlip")
+default_color = Color(1, 0, 0, 1)
+script = ExtResource("1_gbjns")

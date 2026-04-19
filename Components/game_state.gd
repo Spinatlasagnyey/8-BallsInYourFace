@@ -3,6 +3,7 @@ extends Node
 var current_score = 0
 var enemies: = []
 signal score_added(amount: int, position: Vector2)
+var is_winner = false
 
 func add_score(amount: int, position: Vector2):
 	current_score += amount

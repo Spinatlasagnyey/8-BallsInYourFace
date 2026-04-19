@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dvj1bgcst8lke"]
+
+[ext_resource type="Texture2D" uid="uid://vc1vruwwpbcc" path="res://Asset/BALLSRAINBOW.png" id="1_oiwbw"]
+
+[node name="TextureRect" type="TextureRect" unique_id=1679035560]
+offset_right = 1641.0256
+offset_bottom = 915.38464
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("1_oiwbw")
+stretch_mode = 1
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=1320280039]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1920588349]
+visible = false
+offset_left = 6.0
+offset_right = 147.0
+offset_bottom = 90.0
+bbcode_enabled = true
+text = "[rainbow]BALLS"

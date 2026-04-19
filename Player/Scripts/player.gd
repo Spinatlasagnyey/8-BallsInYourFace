@@ -11,7 +11,8 @@ func _physics_process(delta: float) -> void:
 			print("enim_collide")
 			GameState.add_score(100, self.position)
 			Engine.time_scale = 0.1
-			await get_tree().create_timer(0.1).timeout
+			var length = (self.linear_velocity.length() + get_colliding_bodies()[0].linear_velocity.length())/10000
+			await get_tree().create_timer(length).timeout
 			Engine.time_scale = 1
 		else:
 			GlobalEventSfx.sfx_balls_collision_walls.emit()

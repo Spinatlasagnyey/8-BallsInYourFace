@@ -1,6 +1,6 @@
 extends PlayerBaseState
 
-@export var attack_duration: float = 1
+@export var attack_duration: float = 0.5
 var throw_strength: float = 1000
 @export var attack_range = 169
 @export var ball_rotation_point: Node2D

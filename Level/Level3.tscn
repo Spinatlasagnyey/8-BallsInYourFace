@@ -13,6 +13,7 @@
 [ext_resource type="Shader" path="res://Level/dithering.gdshader" id="11_malv8"]
 [ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="12_j6i8j"]
 [ext_resource type="PackedScene" uid="uid://b18f3af6e3prp" path="res://Level/Menu/level_complete.tscn" id="13_x3hc7"]
+[ext_resource type="PackedScene" uid="uid://3wfnwb3xn67r" path="res://Level/Level4.tscn" id="14_p4jbx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_734j3"]
 vertices = PackedVector2Array(584.96875, 22.9375, 584.02344, 394.97656, 22.023438, 394.0078, 22.96875, 20.046875)
@@ -103,26 +104,12 @@ tile_set = SubResource("TileSet_rgkqn")
 tile_map_data = PackedByteArray("AAAQAAIAAQAAAAAAAQAFAAYAAQAAAAAAAQARAAsAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_7kqjn")
 
-[node name="Control" type="Control" parent="." unique_id=1760981762]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1896787546]
-layout_mode = 0
-offset_left = 312.0
-offset_top = 24.0
-offset_right = 352.0
-offset_bottom = 56.0
-bbcode_enabled = true
-script = ExtResource("9_lnqge")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=707549723]
 stream = ExtResource("10_ilkah")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1650230134]
+visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=2035815317]
 material = SubResource("ShaderMaterial_dl3e7")
@@ -150,5 +137,20 @@ position = Vector2(156, 339)
 position = Vector2(455, 199)
 
 [node name="LevelComplete" parent="." unique_id=906160121 instance=ExtResource("13_x3hc7")]
+next_scene = ExtResource("14_p4jbx")
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=2077813451]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=104803875]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 12.0
+offset_right = 20.0
+offset_bottom = 44.0
+grow_horizontal = 2
+bbcode_enabled = true
+script = ExtResource("9_lnqge")
 
 [editable path="TileMap1"]
