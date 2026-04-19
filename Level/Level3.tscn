@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="8_iojsj"]
 [ext_resource type="Script" uid="uid://f7tilsotbo7o" path="res://Level/rich_text_label.gd" id="9_lnqge"]
 [ext_resource type="AudioStream" uid="uid://cne8djcp2l1yi" path="res://Audio/song.wav" id="10_ilkah"]
-[ext_resource type="Shader" uid="uid://8ljvvnal56c3" path="res://Level/dithering.gdshader" id="11_malv8"]
+[ext_resource type="Shader" path="res://Level/dithering.gdshader" id="11_malv8"]
 [ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="12_j6i8j"]
+[ext_resource type="PackedScene" uid="uid://b18f3af6e3prp" path="res://Level/Menu/level_complete.tscn" id="13_x3hc7"]
+[ext_resource type="PackedScene" uid="uid://3wfnwb3xn67r" path="res://Level/Level4.tscn" id="14_p4jbx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_734j3"]
 vertices = PackedVector2Array(584.96875, 22.9375, 584.02344, 394.97656, 22.023438, 394.0078, 22.96875, 20.046875)
@@ -147,5 +149,8 @@ position = Vector2(156, 339)
 
 [node name="Enemy2" parent="." unique_id=1810236506 instance=ExtResource("3_x3hc7")]
 position = Vector2(455, 199)
+
+[node name="LevelComplete" parent="." unique_id=906160121 instance=ExtResource("13_x3hc7")]
+next_scene = ExtResource("14_p4jbx")
 
 [editable path="TileMap1"]

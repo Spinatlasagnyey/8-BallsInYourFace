@@ -13,6 +13,10 @@ func on_death(hole_position: Vector2):
 	tween_position.tween_property(object.get_node("Sprite2D"), "global_position", hole_position, 0.5)
 	await tween_scale.tween_property(object.get_node("Sprite2D"), "scale", Vector2.ZERO, 1).finished
 	
+	call_deferred("reload")
+	
+func reload():
+	GlobalEventSystem.reload_scene.emit()
 
 
 	

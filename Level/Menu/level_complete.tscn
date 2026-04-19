@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bcx7iwlqg24wq" path="res://Level/Menu/clacon2.ttf" id="4_w31kb"]
 [ext_resource type="Texture2D" uid="uid://c2j6f4t244hsg" path="res://Level/Menu/YouWin.png" id="5_70yjj"]
 [ext_resource type="Texture2D" uid="uid://cg37e0eqgvqbb" path="res://Components/Shader/colorful_gradiant.tres" id="6_8caa1"]
+[ext_resource type="AudioStream" uid="uid://dvwe3nnf0lj65" path="res://Level/Menu/whrilwhirlwhirl.wav" id="8_fhkqh"]
 
 [sub_resource type="Theme" id="Theme_3tde0"]
 default_font = ExtResource("4_w31kb")
@@ -91,5 +92,8 @@ amount = 265
 lifetime = 10.0
 explosiveness = 0.98
 process_material = SubResource("ParticleProcessMaterial_k03cv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1644907921]
+stream = ExtResource("8_fhkqh")
 
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

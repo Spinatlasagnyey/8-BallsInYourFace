@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cyqc11bwbxuqh"]
+[gd_scene format=4 uid="uid://3wfnwb3xn67r"]
 
 [ext_resource type="PackedScene" uid="uid://chf6kdydpc3pl" path="res://Player/Player.tscn" id="1_j1nbm"]
 [ext_resource type="Script" uid="uid://bvk7ho1huw7ps" path="res://Components/Camera/camerashake_2D.gd" id="2_lydvh"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://b1nfu670023bv" path="res://Hole/Hole.tscn" id="7_814r3"]
 [ext_resource type="Script" uid="uid://f7tilsotbo7o" path="res://Level/rich_text_label.gd" id="8_03v4q"]
 [ext_resource type="AudioStream" uid="uid://cne8djcp2l1yi" path="res://Audio/song.wav" id="9_m8615"]
-[ext_resource type="Shader" uid="uid://8ljvvnal56c3" path="res://Level/dithering.gdshader" id="10_p1led"]
+[ext_resource type="Shader" path="res://Level/dithering.gdshader" id="10_p1led"]
 [ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="11_ynw4p"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="12_iyixr"]
+[ext_resource type="PackedScene" uid="uid://b18f3af6e3prp" path="res://Level/Menu/level_complete.tscn" id="13_r6ku6"]
+[ext_resource type="PackedScene" uid="uid://bmje6j3yo84qr" path="res://Level/Level5.tscn" id="14_d8oxo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_734j3"]
 vertices = PackedVector2Array(866.8594, -99.03125, 860.1328, 388.0625, 21.859375, 393.9297, 15.1328125, -101.96094)
@@ -147,5 +149,8 @@ position = Vector2(436, -22)
 
 [node name="Enemy2" parent="." unique_id=1810236506 instance=ExtResource("12_iyixr")]
 position = Vector2(236, 168)
+
+[node name="LevelComplete" parent="." unique_id=906160121 instance=ExtResource("13_r6ku6")]
+next_scene = ExtResource("14_d8oxo")
 
 [editable path="TileMap1"]

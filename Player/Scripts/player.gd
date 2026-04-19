@@ -15,3 +15,7 @@ func _physics_process(delta: float) -> void:
 			Engine.time_scale = 1
 		else:
 			GlobalEventSfx.sfx_balls_collision_walls.emit()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		GlobalEventSystem.reload_scene.emit()

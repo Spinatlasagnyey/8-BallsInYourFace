@@ -6,11 +6,18 @@ extends CanvasLayer
 
 func _ready() -> void:
 	GlobalEventSystem.change_scene.connect(change_scene)
+	GlobalEventSystem.reload_scene.connect(reload_scene)
 
 func change_scene(scene: PackedScene):
 	anim.play("ball_fade_out")
 	await anim.animation_finished
 	get_tree().change_scene_to_packed(scene)
+	anim.play("ball_fade_in")
+
+func reload_scene():
+	anim.play("ball_fade_out")
+	await anim.animation_finished
+	get_tree().reload_current_scene()
 	anim.play("ball_fade_in")
 
 func increase_fade_seed():

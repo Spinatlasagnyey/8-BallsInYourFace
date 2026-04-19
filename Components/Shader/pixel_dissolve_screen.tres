@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_341sn")
-shader_parameter/progress = 1.0
+shader_parameter/progress = 0.0
 shader_parameter/seed = 1.0
 shader_parameter/randomness = 0.0
 shader_parameter/pixelate = false

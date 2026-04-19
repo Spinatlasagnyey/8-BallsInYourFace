@@ -58,6 +58,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_5jbxc"]
 resource_name = "ball_fade_in"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,7 +66,7 @@ tracks/0/path = NodePath("TextureRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(50, 50), Vector2(1e-05, 1e-05)]
@@ -73,6 +74,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5cx5y"]
 resource_name = "ball_fade_out"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,7 +82,7 @@ tracks/0/path = NodePath("TextureRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(50, 50)]
