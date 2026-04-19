@@ -13,7 +13,6 @@
 [ext_resource type="Shader" uid="uid://c1m0i2826di77" path="res://Components/Shader/balls_shader.gdshader" id="11_ilk7t"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="12_hcrym"]
 [ext_resource type="PackedScene" uid="uid://b18f3af6e3prp" path="res://Level/Menu/level_complete.tscn" id="13_ix2ou"]
-[ext_resource type="PackedScene" uid="uid://lxkfpiqp8wua" path="res://Level/LevelTest.tscn" id="14_qbfke"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_734j3"]
 vertices = PackedVector2Array(866.8594, -99.03125, 860.1328, 388.0625, 21.859375, 393.9297, 15.1328125, -101.96094)
@@ -145,6 +144,5 @@ grow_vertical = 2
 position = Vector2(756, 137)
 
 [node name="LevelComplete" parent="." unique_id=906160121 instance=ExtResource("13_ix2ou")]
-next_scene = ExtResource("14_qbfke")
 
 [editable path="TileMap1"]

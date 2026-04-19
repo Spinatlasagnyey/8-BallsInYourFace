@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ddtj6nk5l26yq" path="res://Components/Ingame/score_up_label.tscn" id="6_yng6e"]
 [ext_resource type="Material" uid="uid://gr8dka0vpqjb" path="res://Components/Shader/balls_shader_res.tres" id="7_8ey1b"]
 [ext_resource type="PackedScene" uid="uid://b18f3af6e3prp" path="res://Level/Menu/level_complete.tscn" id="8_lss7e"]
-[ext_resource type="PackedScene" uid="uid://bqil004uhgp0a" path="res://Level/Level2.tscn" id="9_gl4ql"]
 
 [sub_resource type="GDScript" id="GDScript_6sima"]
 script/source = "extends Node2D
@@ -69,6 +68,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LevelComplete" parent="." unique_id=906160121 instance=ExtResource("8_lss7e")]
-next_scene = ExtResource("9_gl4ql")
 
 [editable path="TileMap1"]
