@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://lxkfpiqp8wua"]
 
-[ext_resource type="PackedScene" uid="uid://chf6kdydpc3pl" path="res://Player/player.tscn" id="1_g6vvm"]
+[ext_resource type="PackedScene" uid="uid://chf6kdydpc3pl" path="res://Player/Player.tscn" id="1_g6vvm"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="2_olpu1"]
 [ext_resource type="Script" uid="uid://bvk7ho1huw7ps" path="res://Components/Camera/camerashake_2D.gd" id="3_yng6e"]
 [ext_resource type="PackedScene" uid="uid://d0d6kfuh8xn5b" path="res://Components/Ingame/game_manager.tscn" id="5_uwsch"]
@@ -53,8 +53,10 @@ tile_map_data = PackedByteArray("AAAQAAMAAAAAAAAAAAARAAMAAAABAAAAAAASAAMAAAACAAA
 tile_map_data = PackedByteArray("AAAEAAEAAQAAAAAAAQAOAAEAAQAAAAAAAQAJAAYAAQAAAAAAAQABAAsAAQAAAAAAAQARAAsAAQAAAAAAAQAJAAsAAQAAAAAAAQA=")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1806676605]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=853352959]
+visible = false
 material = ExtResource("7_8ey1b")
 anchors_preset = 15
 anchor_right = 1.0

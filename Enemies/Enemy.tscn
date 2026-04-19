@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://dor8ooohbowsy" path="res://Enemies/attack_dash.gd" id="1_jcwuj"]
 [ext_resource type="Script" uid="uid://dbr6whpbvex3b" path="res://Enemies/prepare_state.gd" id="3_biruh"]
 [ext_resource type="Script" uid="uid://do1wspt4up1ae" path="res://Enemies/Scripts/enemy_idle_state.gd" id="3_jcwuj"]
-[ext_resource type="Texture2D" uid="uid://dvn55tbl1s8lg" path="res://Enemies/Sprites/ZombieProto.png" id="3_wdetw"]
 [ext_resource type="Script" uid="uid://cneqlqpx3067i" path="res://Enemies/Scripts/enemy_stunned_state.gd" id="5_a5aut"]
 [ext_resource type="PackedScene" uid="uid://c6ohiiaky5nfy" path="res://Components/Death/DeathBehaivor.tscn" id="6_n1bor"]
+[ext_resource type="Texture2D" uid="uid://bs5u07n5otjld" path="res://Asset/Enemy1.png" id="7_un6pf"]
 [ext_resource type="Script" uid="uid://06j7wxvaq2tl" path="res://Enemies/Scripts/enemy_death_behavior.gd" id="8_ikgc1"]
+[ext_resource type="AudioStream" uid="uid://dblwgpeqyypu2" path="res://Audio/V2sHOOOT.wav" id="10_fn17s"]
+[ext_resource type="AudioStream" uid="uid://cueux1p11okor" path="res://Audio/aeggea.wav" id="10_jio8c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ikgc1"]
 bounce = 0.69
@@ -99,13 +101,15 @@ script = ExtResource("3_jcwuj")
 agent = NodePath("../../NavigationAgent2D")
 ray = NodePath("../../RayCast2D")
 
-[node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913 node_paths=PackedStringArray("effect")]
+[node name="PrepareState" type="Node2D" parent="StateManager" unique_id=97990913 node_paths=PackedStringArray("effect", "power_up")]
 script = ExtResource("3_biruh")
 effect = NodePath("../../PowerUp")
+power_up = NodePath("../../PowerUpSFX")
 
-[node name="DashState" type="Node2D" parent="StateManager" unique_id=465474441 node_paths=PackedStringArray("effect_dash")]
+[node name="DashState" type="Node2D" parent="StateManager" unique_id=465474441 node_paths=PackedStringArray("effect_dash", "sfx_dash")]
 script = ExtResource("1_jcwuj")
 effect_dash = NodePath("../../AttackFX")
+sfx_dash = NodePath("../../Shoot")
 
 [node name="StunnedState" type="Node2D" parent="StateManager" unique_id=290676919]
 script = ExtResource("5_a5aut")
@@ -114,7 +118,7 @@ script = ExtResource("5_a5aut")
 shape = SubResource("CircleShape2D_wdetw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=834618559]
-texture = ExtResource("3_wdetw")
+texture = ExtResource("7_un6pf")
 
 [node name="DeathBehaivor" parent="." unique_id=485860911 instance=ExtResource("6_n1bor")]
 script = ExtResource("8_ikgc1")
@@ -125,3 +129,12 @@ debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=364139998]
 target_position = Vector2(226, 0)
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="." unique_id=503723384]
+position = Vector2(22, 0)
+stream = ExtResource("10_fn17s")
+
+[node name="PowerUpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1514286169]
+stream = ExtResource("10_jio8c")
+volume_db = -5.233
+pitch_scale = 1.22

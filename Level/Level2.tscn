@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bqil004uhgp0a"]
 
-[ext_resource type="PackedScene" uid="uid://bvvx6xua2hcvu" path="res://Player/Player.tscn" id="1_rxqj4"]
+[ext_resource type="PackedScene" uid="uid://chf6kdydpc3pl" path="res://Player/Player.tscn" id="1_rxqj4"]
 [ext_resource type="PackedScene" uid="uid://cbj6k1csmiww7" path="res://Enemies/Enemy.tscn" id="2_vte4j"]
 [ext_resource type="Script" uid="uid://bvk7ho1huw7ps" path="res://Components/Camera/camerashake_2D.gd" id="3_r72xe"]
 [ext_resource type="PackedScene" uid="uid://d0d6kfuh8xn5b" path="res://Components/Ingame/game_manager.tscn" id="4_dfp7q"]
